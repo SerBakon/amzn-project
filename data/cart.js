@@ -14,9 +14,11 @@ export function addToCart(productId) {
     });
 
     //console.log(`matching item: ${matchingItem}`);
+    let productQuantity = document.querySelector(`.js-quantity-selector-${productId}`).value;
+    //console.log(productQuantity);
     if(matchingItem) {
-        matchingItem.quantity += 1;
+        matchingItem.quantity += Number(productQuantity);
     } else {
-        cart.push({productId: productId, quantity: 1});
+        cart.push({productId: productId, quantity: Number(productQuantity)});
     }
 }
